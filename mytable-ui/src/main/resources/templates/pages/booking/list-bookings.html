@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:switch="${tables}">
+    <div class="row">
+        <div class="col">
+            <h2 th:case="null">No users yet!</h2>
+            <div th:case="*">
+                <h2 class="my-5">Bookings</h2>
+                <table class="table table-striped table-responsive-md">
+                    <thead>
+	                    <tr>
+	                        <th>Table Name</th>
+	                        <th>Bookings</th>
+	                        <th>Select</th>
+	                    </tr>
+                    </thead>
+                    <tbody>
+	                    <tr th:each="table : ${tables}" >
+	                        <td th:text="${table.alias}"></td>
+	                        <td th:text="${#lists.size(table.bookings)}"></td>
+	                        <td><a th:id="select_+${table.alias}" th:href="@{/booking/table/{id}(id=${table.id})}"
+	                               class="btn btn-primary">Select
+	                        </a></td>
+	                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

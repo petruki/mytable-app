@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.github.petruki.mytable</groupId>
+	<artifactId>mytable-app</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<name>MyTable App</name>
+	<url></url>
+
+	<modules>
+		<module>mytable-common</module>
+		<module>mytable-api</module>
+		<module>mytable-ui</module>
+	</modules>
+
+	<build>
+		<pluginManagement>
+	        <plugins>
+	            <plugin>
+	                <artifactId>maven-deploy-plugin</artifactId>
+	                <configuration>
+	                    <skip>true</skip>
+	                </configuration>
+	            </plugin>
+	        </plugins>
+	    </pluginManagement>
+	</build>
+
+</project>

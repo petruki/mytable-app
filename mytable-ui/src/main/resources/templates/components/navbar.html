@@ -1,0 +1,18 @@
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+	
+<link th:href="@{/styles/navbar.css}" rel="stylesheet" />
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <a id="nav_home" href="/" class="nav-item nav-link">Home</a>
+        <a id="nav_booking" href="/booking" class="nav-item nav-link">Booking</a>
+        <a id="nav_admin" href="/admin" class="nav-item nav-link" sec:authorize="hasRole('ADMIN')">Administration</a>
+        <a id="nav_logout" href="/logout" class="nav-item nav-link">Logout</a>
+    </div>
+    <div class="user-panel">
+        <p>Logged as [[${#httpServletRequest.remoteUser}]]</p>
+    </div>
+</nav>
+</html>

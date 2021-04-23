@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    	<head th:insert="/components/head" th:with="title='My Table App'"></head>
+    </head>
+    <body>
+		<div th:insert="/components/navbar"></div>
+   		<div class="container my-5">
+   			<div th:if="${view == 'home'}" th:insert="/pages/dashboard"></div>
+   			<div th:if="${view == 'booking'}" th:insert="/pages/booking/list-bookings"></div>
+			<div th:if="${view == 'booking-table'}" th:insert="/pages/booking/booking-table"></div>
+   			<div th:if="${view == 'admin'}" th:insert="/pages/admin/list-tables"></div>
+			<div th:if="${view == 'add-table'}" th:insert="/pages/admin/add-table"></div>
+			<div th:if="${view == 'update-table'}" th:insert="/pages/admin/update-table"></div>
+		</div>
+    </body>
+</html>

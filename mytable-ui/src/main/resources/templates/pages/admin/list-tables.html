@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:switch="${tables}">
+    <div class="row">
+        <div class="col">
+            <h2 th:case="null">No users yet!</h2>
+            <div th:case="*">
+                <h2 class="my-5">Tables</h2>
+                <table class="table table-striped table-responsive-md">
+                    <thead>
+                    <tr>
+                        <th>Table Name</th>
+                        <th>Available Seats</th>
+                        <th>Available Slots</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="table : ${tables}">
+                        <td th:text="${table.alias}"></td>
+                        <td th:text="${table.availableSeats}"></td>
+                        <td th:text="${table.availableSlots}"></td>
+                        <td>
+                        	<a th:href="@{/admin/table/edit/{id}(id=${table.id})}"
+                            	class="btn btn-success"><i class="fas fa-edit"></i>
+                        	</a>
+                        </td>
+                        <td >
+                        	<a th:href="@{/admin/table/delete/{id}(id=${table.id})}"
+                               class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                        	</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="my-5">
+                <a href="/admin/addtable-form" class="btn btn-primary">Create</a>
+            </p>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div class="row">
+    <div class="col">
+    	<h2 class="my-5">New Table</h2>
+        <form action="#" th:action="@{/admin/addtable}" th:object="${table}" method="post">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="alias" class="col-form-label">Table Name</label>
+                    <input type="text" th:field="*{alias}" class="form-control" id="alias" placeholder="Table Name">
+                    <span th:if="${#fields.hasErrors('alias')}" th:errors="*{alias}" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="availableSeats" class="col-form-label">Available Seats</label>
+                    <input type="number" th:field="*{availableSeats}" class="form-control" id="availableSeats" placeholder="Email">
+                    <span th:if="${#fields.hasErrors('availableSeats')}" th:errors="*{availableSeats}" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mt-5">
+                    <input type="submit" class="btn btn-primary" value="Add Table">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</html>
